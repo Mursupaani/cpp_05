@@ -65,3 +65,5 @@ public:
 		const char *what() const noexcept override;
 	};
 };
+
+std::ostream &operator<<(std::ostream &ostream, const Bureaucrat &b);

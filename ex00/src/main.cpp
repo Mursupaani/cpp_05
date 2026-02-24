@@ -15,9 +15,9 @@
 int main(void)
 {
 	{
+		std::cout << "TEST 1:\n\n";
 		Bureaucrat test;
-		std::cout << "Bureucrat: " << test.getName() << "\n";
-		std::cout << "Grade: " << test.getGrade() << "\n\n";
+		std::cout << test << "\n";
 		try
 		{
 			test.decrementGrade();
@@ -26,17 +26,15 @@ int main(void)
 		{
 			std::cout << e.what() << std::endl;
 		}
-		std::cout << "Bureucrat: " << test.getName() << "\n";
-		std::cout << "Grade: " << test.getGrade() << "\n\n";
+		std::cout << test << "\n";
 		std::cout << "Increment bureucrat's grade\n";
 		test.incrementGrade();
-		std::cout << "Bureucrat: " << test.getName() << "\n";
-		std::cout << "Grade: " << test.getGrade() << "\n\n";
+		std::cout << test << "\n";
 	}
 	{
+		std::cout << "\nTEST 2:\n\n";
 		Bureaucrat test("Pekka", 1);
-		std::cout << "Bureucrat: " << test.getName() << "\n";
-		std::cout << "Grade: " << test.getGrade() << "\n\n";
+		std::cout << test << "\n";
 		try
 		{
 			test.incrementGrade();
@@ -45,33 +43,34 @@ int main(void)
 		{
 			std::cout << e.what() << std::endl;
 		}
-		std::cout << "Bureucrat: " << test.getName() << "\n";
-		std::cout << "Grade: " << test.getGrade() << "\n\n";
+		std::cout << test << "\n";
 		std::cout << "Decrement bureucrat's grade\n";
 		test.decrementGrade();
-		std::cout << "Bureucrat: " << test.getName() << "\n";
-		std::cout << "Grade: " << test.getGrade() << "\n\n";
+		std::cout << test << "\n";
 	}
 	{
+		std::cout << "\nTEST 3:\n\n";
 		Bureaucrat test("Pekka", 1);
 		Bureaucrat test_copy(test);
-		test.decrementGrade();
-		std::cout << "Bureucrat: " << test.getName() << "\n";
-		std::cout << "Grade: " << test.getGrade() << "\n\n";
+		std::cout << "Original\n";
+		std::cout << test << "\n";
 		std::cout << "Copy of original\n";
-		std::cout << "Bureucrat: " << test_copy.getName() << "\n";
-		std::cout << "Grade: " << test_copy.getGrade() << "\n\n";
+		std::cout << test_copy << "\n";
 		std::cout << "Copy assignment test_copy = test\n";
 		test_copy = test;
-		std::cout << "Bureucrat: " << test_copy.getName() << "\n";
-		std::cout << "Grade: " << test_copy.getGrade() << "\n\n";
+		std::cout << "Decrement original's grade\n";
+		test.decrementGrade();
+		std::cout << "Original\n";
+		std::cout << test << "\n";
+		std::cout << "Copy of original\n";
+		std::cout << test_copy << "\n";
 	}
 	{
+		std::cout << "\nTEST 4:\n\n";
 		try
 		{
 			Bureaucrat test("Pekka", 0);
-			std::cout << "Bureucrat: " << test.getName() << "\n";
-			std::cout << "Grade: " << test.getGrade() << "\n\n";
+			std::cout << test << "\n";
 		}
 		catch (Bureaucrat::GradeTooLowException &e)
 		{
@@ -83,11 +82,11 @@ int main(void)
 		}
 	}
 	{
+		std::cout << "\nTEST 5:\n\n";
 		try
 		{
 			Bureaucrat test("Pekka", -1);
-			std::cout << "Bureucrat: " << test.getName() << "\n";
-			std::cout << "Grade: " << test.getGrade() << "\n\n";
+			std::cout << test << "\n";
 		}
 		catch (Bureaucrat::GradeTooLowException &e)
 		{
@@ -99,11 +98,11 @@ int main(void)
 		}
 	}
 	{
+		std::cout << "\nTEST 6:\n\n";
 		try
 		{
 			Bureaucrat test("Pekka", 200);
-			std::cout << "Bureucrat: " << test.getName() << "\n";
-			std::cout << "Grade: " << test.getGrade() << "\n\n";
+			std::cout << test << "\n";
 		}
 		catch (Bureaucrat::GradeTooLowException &e)
 		{

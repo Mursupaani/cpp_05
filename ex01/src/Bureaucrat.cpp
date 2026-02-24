@@ -60,8 +60,7 @@ void Bureaucrat::incrementGrade(void)
 	if (_grade < _gradeMax)
 	{
 		++_grade;
-		std::string message = _name + " already at max grade " + std::to_string(_gradeMax);
-		throw GradeTooHighException(message);
+		throw GradeTooHighException(_name + " already at max grade " + std::to_string(_gradeMax));
 	}
 }
 
@@ -72,7 +71,7 @@ void Bureaucrat::decrementGrade(void)
 	{
 		--_grade;
 		std::string message = _name + " already at min grade " + std::to_string(_gradeMin);
-		throw GradeTooLowException(message);
+		throw GradeTooLowException(_name + " already at min grade " + std::to_string(_gradeMin));
 	}
 }
 
@@ -103,4 +102,10 @@ Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string messa
 const char *Bureaucrat::GradeTooHighException::what() const noexcept
 {
 	return (_message.c_str());
+}
+
+std::ostream &operator<<(std::ostream &ostream, const Bureaucrat &b)
+{
+	ostream << b.getName() << ", bureaucrat grade " << b.getGrade();
+	return (ostream);
 }
