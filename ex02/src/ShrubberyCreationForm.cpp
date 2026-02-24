@@ -13,7 +13,16 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 
 void ShrubberyCreationForm::executeForm(void) const
 {
-	std::ofstream of;
+	std::string fileName = this->getTarget() + "_shrubbery";
+	std::ofstream file(fileName);
+
+	if (!file.is_open())
+		std::cout << "Failed to create " << fileName << "\n";
+	file << this->getTarget() << " is so nice now :)\n\n"
+	"    ^      (()()())       ^\n"
+	"   / \\    (()(())())     / \\\n"
+	"  /   \\    (()()())     /   \\\n"
+	"  -----       ||        -----\n"
+	"   | |        ||         | |\n"
+	;
 }
-
-

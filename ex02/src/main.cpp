@@ -22,6 +22,7 @@ int main(void)
 		Bureaucrat sign("Signer", 146);
 		Bureaucrat execute("Executor", 138);
 		AForm *form = new ShrubberyCreationForm("Park");
+		AForm *form2 = new ShrubberyCreationForm("Yard");
 		std::cout << sign << "\n\n";
 		std::cout << execute << "\n\n";
 		std::cout << *form << "\n\n";
@@ -36,7 +37,11 @@ int main(void)
 		std::cout << "Increment executor grade" << "\n";
 		execute.incrementGrade();
 		execute.executeForm(*form);
+		std::cout << "\n";
+		sign.signForm(*form2);
+		execute.executeForm(*form2);
 		delete form;
+		delete form2;
 		std::cout << "\n";
 	}
 	{
