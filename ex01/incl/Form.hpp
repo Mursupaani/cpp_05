@@ -37,6 +37,18 @@ public:
 
 		const char *what(void) const noexcept override;
 	};
+
+	class GradeTooHighException : std::exception
+	{
+	private:
+		std::string _message;
+	public:
+		GradeTooHighException(void) = default;
+		~GradeTooHighException(void) = default;
+		GradeTooHighException(const std::string message);
+
+		const char *what(void) const noexcept override;
+	};
 };
 
 std::ostream &operator<<(std::ostream &ostream, const Form &f);

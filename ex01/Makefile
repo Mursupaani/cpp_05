@@ -12,7 +12,7 @@ OBJ_DIR		= ./obj/
 OBJ_FILES	= $(CPP_FILES:%.cpp=%.o)
 OBJS		= $(addprefix $(OBJ_DIR), $(OBJ_FILES))
 
-CPP_FLAGS	= -Wall -Wextra -Werror -std=c++20 -I$(INCL_DIR) -g
+CPP_FLAGS	= -Wall -Wextra -Werror -Wsign-conversion -std=c++20 -I$(INCL_DIR) -g
 
 all: $(NAME)
 
