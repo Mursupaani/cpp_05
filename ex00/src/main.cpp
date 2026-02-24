@@ -66,4 +66,52 @@ int main(void)
 		std::cout << "Bureucrat: " << test_copy.getName() << "\n";
 		std::cout << "Grade: " << test_copy.getGrade() << "\n\n";
 	}
+	{
+		try
+		{
+			Bureaucrat test("Pekka", 0);
+			std::cout << "Bureucrat: " << test.getName() << "\n";
+			std::cout << "Grade: " << test.getGrade() << "\n\n";
+		}
+		catch (Bureaucrat::GradeTooLowException &e)
+		{
+			std::cout << e.what() << "\n";
+		}
+		catch (Bureaucrat::GradeTooHighException &e)
+		{
+			std::cout << e.what() << "\n";
+		}
+	}
+	{
+		try
+		{
+			Bureaucrat test("Pekka", -1);
+			std::cout << "Bureucrat: " << test.getName() << "\n";
+			std::cout << "Grade: " << test.getGrade() << "\n\n";
+		}
+		catch (Bureaucrat::GradeTooLowException &e)
+		{
+			std::cout << e.what() << "\n";
+		}
+		catch (Bureaucrat::GradeTooHighException &e)
+		{
+			std::cout << e.what() << "\n";
+		}
+	}
+	{
+		try
+		{
+			Bureaucrat test("Pekka", 200);
+			std::cout << "Bureucrat: " << test.getName() << "\n";
+			std::cout << "Grade: " << test.getGrade() << "\n\n";
+		}
+		catch (Bureaucrat::GradeTooLowException &e)
+		{
+			std::cout << e.what() << "\n";
+		}
+		catch (Bureaucrat::GradeTooHighException &e)
+		{
+			std::cout << e.what() << "\n";
+		}
+	}
 }

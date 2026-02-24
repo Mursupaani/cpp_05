@@ -44,6 +44,16 @@ std::string Bureaucrat::getName(void) const
 	return (_name);
 }
 
+unsigned int Bureaucrat::getGradeMax(void)
+{
+	return (_gradeMax);
+}
+
+unsigned int Bureaucrat::getGradeMin(void)
+{
+	return (_gradeMin);
+}
+
 void Bureaucrat::incrementGrade(void)
 {
 	--_grade;
@@ -63,6 +73,19 @@ void Bureaucrat::decrementGrade(void)
 		--_grade;
 		std::string message = _name + " already at min grade " + std::to_string(_gradeMin);
 		throw GradeTooLowException(message);
+	}
+}
+
+void Bureaucrat::signForm(Form &f) const
+{
+	try
+	{
+		f.beSigned(*this);
+		std::cout << this->getName() << " signed '" << f.getName() << "'\n";
+	}
+	catch (Form::GradeTooLowException &e)
+	{
+		std::cout << e.what() << "\n";
 	}
 }
 
