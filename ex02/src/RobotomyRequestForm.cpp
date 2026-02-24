@@ -20,7 +20,7 @@ void RobotomyRequestForm::executeForm(void) const
 
 	int randomNum = dist(gen);
 	if (randomNum % 2 == 0)
-		std::cout << "!!!... LOUD DRILLING NOISES ...!!!\n" << this->getTarget() << " has been robotomized.\n";
+		std::cout << "!!!... LOUD DRILLING NOISES ...!!! " << this->getTarget() << " has been robotomized.\n";
 	else
 		std::cout << "Failed to robotomize " << this->getTarget() << "\n";
 }

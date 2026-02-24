@@ -55,10 +55,13 @@ int main(void)
 		std::cout << "Increment signer grade" << "\n";
 		sign.signForm(*form);
 		std::cout << "\n";
-		execute.executeForm(*form);
 		std::cout << "Increment executor grade" << "\n";
 		execute.incrementGrade();
-		execute.executeForm(*form);
+		for (int i = 0; i < 10; ++i)
+		{
+			std::cout << i << ": ";
+			execute.executeForm(*form);
+		}
 		delete form;
 		std::cout << "\n";
 	}
