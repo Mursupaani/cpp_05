@@ -17,7 +17,7 @@ void ShrubberyCreationForm::executeForm(void) const
 	std::ofstream file(fileName);
 
 	if (!file.is_open())
-		std::cout << "Failed to create " << fileName << "\n";
+		std::cout << "Failed to create or open " << fileName << "\n";
 	file << this->getTarget() << " is so nice now :)\n\n"
 	"    ^      (()()())       ^\n"
 	"   / \\    (()(())())     / \\\n"
