@@ -1,14 +1,18 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 class Intern
 {
-private:
-
 public:
-	Intern(void);
-	Intern(const Intern &other);
-	Intern &operator=(const Intern &other);
-	~Intern(void);
+	Intern(void) = default;
+	Intern(const Intern &other) = default;
+	Intern &operator=(const Intern &other) = default;
+	~Intern(void) = default;
+
+	AForm *makeForm(std::string name, std::string target) const;
 };

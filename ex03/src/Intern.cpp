@@ -1,22 +1,25 @@
 #include "Intern.hpp"
 
-Intern::Intern(void)
-{}
-
-Intern::Intern(const Intern &other)
+AForm *Intern::makeForm(std::string name, std::string target) const
 {
-	// FIXME: Add logic here.
-	(void)other;
+	if (name == "shrubbery creation")
+	{
+		std::cout << "Intern creates " << name << " form.\n";
+		return (new ShrubberyCreationForm(target));
+	}
+	else if (name == "robotomy request")
+	{
+		std::cout << "Intern creates " << name << " form.\n";
+		return (new RobotomyRequestForm(target));
+	}
+	else if (name == "presidential pardon")
+	{
+		std::cout << "Intern creates " << name << " form.\n";
+		return (new PresidentialPardonForm(target));
+	}
+	else
+	{
+		std::cout << name << " form not found.\n";
+		return (nullptr);
+	}
 }
-
-Intern &Intern::operator=(const Intern &other)
-{
-	if (this == &other)
-		return (*this);
-	// FIXME: Add logic here.
-	(void)other;
-	return (*this);
-}
-
-Intern::~Intern(void)
-{}

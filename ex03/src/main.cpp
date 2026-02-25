@@ -11,18 +11,17 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 int main(void)
 {
+	Intern intern;
 	{
 		std::cout << "----------TEST 1----------\n\n";
 		Bureaucrat sign("Signer", 146);
 		Bureaucrat execute("Executor", 138);
-		AForm *form = new ShrubberyCreationForm("Park");
-		AForm *form2 = new ShrubberyCreationForm("Yard");
+		AForm *form = intern.makeForm("shrubbery creation", "Yard");
+		std::cout << "\n";
 		std::cout << sign << "\n\n";
 		std::cout << execute << "\n\n";
 		std::cout << *form << "\n\n";
@@ -38,17 +37,14 @@ int main(void)
 		execute.incrementGrade();
 		execute.executeForm(*form);
 		std::cout << "\n";
-		sign.signForm(*form2);
-		execute.executeForm(*form2);
 		delete form;
-		delete form2;
 		std::cout << "\n";
 	}
 	{
 		std::cout << "----------TEST 2----------\n\n";
 		Bureaucrat sign("Signer", 73);
 		Bureaucrat execute("Executor", 46);
-		AForm *form = new RobotomyRequestForm("Pekka");
+		AForm *form = intern.makeForm("robotomy request", "Pekka");
 		std::cout << "\n";
 		std::cout << sign << "\n\n";
 		std::cout << execute << "\n\n";
@@ -74,7 +70,7 @@ int main(void)
 		std::cout << "----------TEST 3----------\n\n";
 		Bureaucrat sign("Signer", 26);
 		Bureaucrat execute("Executor", 6);
-		AForm *form = new PresidentialPardonForm("Pekka");
+		AForm *form = intern.makeForm("presidential pardon", "Pekka");
 		std::cout << "\n";
 		std::cout << sign << "\n\n";
 		std::cout << execute << "\n\n";

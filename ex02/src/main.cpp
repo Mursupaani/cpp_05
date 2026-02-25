@@ -21,76 +21,72 @@ int main(void)
 		std::cout << "----------TEST 1----------\n\n";
 		Bureaucrat sign("Signer", 146);
 		Bureaucrat execute("Executor", 138);
-		AForm *form = new ShrubberyCreationForm("Park");
-		AForm *form2 = new ShrubberyCreationForm("Yard");
+		ShrubberyCreationForm form("Park");
+		ShrubberyCreationForm form2("Yard");
 		std::cout << sign << "\n\n";
 		std::cout << execute << "\n\n";
-		std::cout << *form << "\n\n";
-		execute.executeForm(*form);
+		std::cout << form << "\n\n";
+		execute.executeForm(form);
 		std::cout << "\n";
-		sign.signForm(*form);
+		sign.signForm(form);
 		sign.incrementGrade();
 		std::cout << "Increment signer grade" << "\n";
-		sign.signForm(*form);
+		sign.signForm(form);
 		std::cout << "\n";
-		execute.executeForm(*form);
+		execute.executeForm(form);
 		std::cout << "Increment executor grade" << "\n";
 		execute.incrementGrade();
-		execute.executeForm(*form);
+		execute.executeForm(form);
 		std::cout << "\n";
-		sign.signForm(*form2);
-		execute.executeForm(*form2);
-		delete form;
-		delete form2;
+		sign.signForm(form2);
+		execute.executeForm(form2);
 		std::cout << "\n";
 	}
 	{
 		std::cout << "----------TEST 2----------\n\n";
 		Bureaucrat sign("Signer", 73);
 		Bureaucrat execute("Executor", 46);
-		AForm *form = new RobotomyRequestForm("Pekka");
+		RobotomyRequestForm form("Pekka");
 		std::cout << "\n";
 		std::cout << sign << "\n\n";
 		std::cout << execute << "\n\n";
-		std::cout << *form << "\n\n";
-		execute.executeForm(*form);
+		std::cout << form << "\n\n";
+		execute.executeForm(form);
 		std::cout << "\n";
-		sign.signForm(*form);
+		sign.signForm(form);
 		sign.incrementGrade();
 		std::cout << "Increment signer grade" << "\n";
-		sign.signForm(*form);
+		sign.signForm(form);
 		std::cout << "\n";
 		std::cout << "Increment executor grade" << "\n";
 		execute.incrementGrade();
 		for (int i = 0; i < 10; ++i)
 		{
 			std::cout << i << ": ";
-			execute.executeForm(*form);
+			execute.executeForm(form);
 		}
-		delete form;
 		std::cout << "\n";
 	}
 	{
 		std::cout << "----------TEST 3----------\n\n";
 		Bureaucrat sign("Signer", 26);
 		Bureaucrat execute("Executor", 6);
-		AForm *form = new PresidentialPardonForm("Pekka");
+		PresidentialPardonForm form("Pekka");
 		std::cout << "\n";
 		std::cout << sign << "\n\n";
 		std::cout << execute << "\n\n";
-		std::cout << *form << "\n\n";
-		execute.executeForm(*form);
+		std::cout << form << "\n\n";
+		execute.executeForm(form);
 		std::cout << "\n";
-		sign.signForm(*form);
+		sign.signForm(form);
 		sign.incrementGrade();
 		std::cout << "Increment signer grade" << "\n";
-		sign.signForm(*form);
+		sign.signForm(form);
 		std::cout << "\n";
-		execute.executeForm(*form);
+		execute.executeForm(form);
 		std::cout << "Increment executor grade" << "\n";
 		execute.incrementGrade();
-		execute.executeForm(*form);
-		delete form;
+		execute.executeForm(form);
 		std::cout << "\n";
 	}
 	{
