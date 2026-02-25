@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 #include "Intern.hpp"
 
@@ -91,29 +92,24 @@ int main(void)
 	}
 	{
 		std::cout << "----------TEST 4----------\n\n";
-		ShrubberyCreationForm test("test");
-		ShrubberyCreationForm test_copy(test);
-		std::cout << test << "\n";
-		std::cout << test_copy << "\n";
-		std::cout << "\n";
-		// test = test_copy;
+		Intern test(intern);
+		AForm *form = test.makeForm("shrubbery creation", "Back yard");
+		delete form;
+		Intern test2 = test;
+		form = test2.makeForm("robotomy request", "Bjorn");
+		delete form;
+		Intern test3;
+		test3 = test2;
+		form = test3.makeForm("presidential pardon", "Hans");
+		delete form;
 	}
 	{
-		std::cout << "-----------TEST 6----------\n\n";
-		RobotomyRequestForm test("test");
-		RobotomyRequestForm test_copy(test);
-		std::cout << test << "\n";
-		std::cout << test_copy << "\n";
-		std::cout << "\n";
-		// test = test_copy;
-	}
-	{
-		std::cout << "----------TEST 7----------\n\n";
-		PresidentialPardonForm test("test");
-		PresidentialPardonForm test_copy(test);
-		std::cout << test << "\n";
-		std::cout << test_copy << "\n";
-		std::cout << "\n";
-		// test = test_copy;
+		std::cout << "----------TEST 5----------\n\n";
+		AForm *form = intern.makeForm("hive graduation", "anpollan");
+		if (form)
+		{
+			std::cout << "Calling delete on form\n";
+			delete form;
+		}
 	}
 }

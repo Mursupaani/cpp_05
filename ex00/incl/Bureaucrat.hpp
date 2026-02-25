@@ -25,7 +25,7 @@ private:
 	unsigned int		_grade;
 public:
 	Bureaucrat(void);
-	Bureaucrat(const std::string name, const unsigned int grade);
+	Bureaucrat(const std::string &name, const unsigned int grade);
 	Bureaucrat(const Bureaucrat &other);
 	Bureaucrat &operator=(const Bureaucrat &other);
 	~Bureaucrat(void) = default;
@@ -42,7 +42,7 @@ public:
 	public:
 		GradeTooHighException(void) = default;
 		~GradeTooHighException(void) = default;
-		GradeTooHighException(const std::string message);
+		GradeTooHighException(const std::string &message);
 
 		const char *what() const noexcept override;
 	};
@@ -54,7 +54,7 @@ public:
 	public:
 		GradeTooLowException(void) = default;
 		~GradeTooLowException(void) = default;
-		GradeTooLowException(const std::string message);
+		GradeTooLowException(const std::string &message);
 	
 		const char *what() const noexcept override;
 	};

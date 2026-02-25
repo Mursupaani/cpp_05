@@ -1,7 +1,7 @@
 #include "Form.hpp"
 #include <string>
 
-Form::Form(std::string name, unsigned int gradeToSign, unsigned int gradeToExecute) :
+Form::Form(const std::string &name, unsigned int gradeToSign, unsigned int gradeToExecute) :
 _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute), _isSigned(false)
 {
 	if (_gradeToSign < Bureaucrat::getGradeMax())
@@ -62,10 +62,10 @@ std::ostream &operator<<(std::ostream &ostream, const Form &f)
 	return (ostream);
 }
 
-Form::GradeTooLowException::GradeTooLowException(const std::string message) : _message(message)
+Form::GradeTooLowException::GradeTooLowException(const std::string &message) : _message(message)
 {}
 
-Form::GradeTooHighException::GradeTooHighException(const std::string message) : _message(message)
+Form::GradeTooHighException::GradeTooHighException(const std::string &message) : _message(message)
 {}
 
 const char *Form::GradeTooLowException::what(void) const noexcept

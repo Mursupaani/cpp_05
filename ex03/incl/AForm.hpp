@@ -17,7 +17,7 @@ private:
 	bool				_isSigned;
 public:
 	AForm(void) = delete;
-	AForm(std::string name, unsigned int gradeToSign, unsigned int gradeToExecute, std::string target);
+	AForm(const std::string &name, unsigned int gradeToSign, unsigned int gradeToExecute, const std::string &target);
 	AForm(const AForm &other);
 	AForm &operator=(const AForm &other) = delete;
 	virtual ~AForm(void);
@@ -38,7 +38,7 @@ public:
 	public:
 		GradeTooLowException(void) = default;
 		~GradeTooLowException(void) = default;
-		GradeTooLowException(const std::string message);
+		GradeTooLowException(const std::string &message);
 
 		const char *what(void) const noexcept override;
 	};
@@ -50,7 +50,7 @@ public:
 	public:
 		GradeTooHighException(void) = default;
 		~GradeTooHighException(void) = default;
-		GradeTooHighException(const std::string message);
+		GradeTooHighException(const std::string &message);
 
 		const char *what(void) const noexcept override;
 	};
@@ -62,7 +62,7 @@ public:
 	public:
 		FormNotSignedException(void) = default;
 		~FormNotSignedException(void) = default;
-		FormNotSignedException(const std::string message);
+		FormNotSignedException(const std::string &message);
 
 		const char *what(void) const noexcept override;
 	};

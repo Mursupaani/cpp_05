@@ -1,6 +1,6 @@
 #include "AForm.hpp"
 
-AForm::AForm(std::string name, unsigned int gradeToSign, unsigned int gradeToExecute, std::string target) :
+AForm::AForm(const std::string &name, unsigned int gradeToSign, unsigned int gradeToExecute, const std::string &target) :
 _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute), _target(target), _isSigned(false)
 {
 	if (_gradeToSign < Bureaucrat::getGradeMax())
@@ -65,7 +65,7 @@ void AForm::execute(const Bureaucrat &executor) const
 	executeForm();
 }
 
-AForm::GradeTooLowException::GradeTooLowException(const std::string message) : _message(message)
+AForm::GradeTooLowException::GradeTooLowException(const std::string &message) : _message(message)
 {}
 
 const char *AForm::GradeTooLowException::what(void) const noexcept
@@ -73,7 +73,7 @@ const char *AForm::GradeTooLowException::what(void) const noexcept
 	return (_message.c_str());
 }
 
-AForm::GradeTooHighException::GradeTooHighException(const std::string message) : _message(message)
+AForm::GradeTooHighException::GradeTooHighException(const std::string &message) : _message(message)
 {}
 
 const char *AForm::GradeTooHighException::what(void) const noexcept
@@ -81,7 +81,7 @@ const char *AForm::GradeTooHighException::what(void) const noexcept
 	return (_message.c_str());
 }
 
-AForm::FormNotSignedException::FormNotSignedException(const std::string message) : _message(message)
+AForm::FormNotSignedException::FormNotSignedException(const std::string &message) : _message(message)
 {}
 
 const char *AForm::FormNotSignedException::what(void) const noexcept

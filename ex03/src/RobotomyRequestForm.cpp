@@ -1,7 +1,7 @@
 #include "RobotomyRequestForm.hpp"
 #include <random>
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) :
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target) :
 AForm("Robotomy Request Form", 72, 45, target)
 {}
 

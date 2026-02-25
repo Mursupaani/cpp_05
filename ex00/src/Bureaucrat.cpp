@@ -15,7 +15,7 @@
 Bureaucrat::Bureaucrat(void) : _name("Bureaucrat"), _grade(_gradeMin)
 {}
 
-Bureaucrat::Bureaucrat(const std::string name, const unsigned int grade) :
+Bureaucrat::Bureaucrat(const std::string &name, const unsigned int grade) :
 _name(name), _grade(grade)
 {
 	if (_grade > _gradeMin)
@@ -64,7 +64,7 @@ void Bureaucrat::decrementGrade(void)
 	}
 }
 
-Bureaucrat::GradeTooLowException::GradeTooLowException(std::string message) : _message(message)
+Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string &message) : _message(message)
 {}
 
 const char *Bureaucrat::GradeTooLowException::what() const noexcept
@@ -72,7 +72,7 @@ const char *Bureaucrat::GradeTooLowException::what() const noexcept
 	return (_message.c_str());
 }
 
-Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string message) : _message(message)
+Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string &message) : _message(message)
 {}
 
 const char *Bureaucrat::GradeTooHighException::what() const noexcept

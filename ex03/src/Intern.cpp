@@ -1,25 +1,35 @@
 #include "Intern.hpp"
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-AForm *Intern::makeForm(std::string name, std::string target) const
+AForm *Intern::makeForm(const std::string &name, const std::string &target) const
 {
-	if (name == "shrubbery creation")
+	for (int i = 0; i < 3; ++i)
 	{
-		std::cout << "Intern creates " << name << " form.\n";
-		return (new ShrubberyCreationForm(target));
+		if (name == _formNames[i])
+		{
+			std::cout << "Intern creates '" << _formNames[i] << "' form.\n";
+			return (this->*_forms[i])(target);
+		}
 	}
-	else if (name == "robotomy request")
-	{
-		std::cout << "Intern creates " << name << " form.\n";
-		return (new RobotomyRequestForm(target));
-	}
-	else if (name == "presidential pardon")
-	{
-		std::cout << "Intern creates " << name << " form.\n";
-		return (new PresidentialPardonForm(target));
-	}
-	else
-	{
-		std::cout << name << " form not found.\n";
-		return (nullptr);
-	}
+	std::cout << "Form '" << name << "' not found.\n";
+	return (nullptr);
 }
+
+AForm *Intern::_newShrubberyCreationForm(const std::string &target) const
+{
+	return (new ShrubberyCreationForm(target));
+}
+
+AForm *Intern::_newRobotobyRequestForm(const std::string &target) const
+{
+	return (new RobotomyRequestForm(target));
+}
+
+AForm *Intern::_newPresidentialPardon(const std::string &target) const
+{
+	return (new PresidentialPardonForm(target));
+}
+
