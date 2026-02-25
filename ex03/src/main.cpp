@@ -106,10 +106,7 @@ int main(void)
 	{
 		std::cout << "----------TEST 5----------\n\n";
 		AForm *form = intern.makeForm("hive graduation", "anpollan");
-		if (form)
-		{
-			std::cout << "Calling delete on form\n";
-			delete form;
-		}
+		if (form == nullptr)
+			std::cout << "Intern returned a nullptr\n";
 	}
 }
